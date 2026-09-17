@@ -46,10 +46,14 @@ fourier-series-analysis/
 │   └── 03_fourier_vs_fft.ipynb
 ├── tests/
 │   └── test_fourier.py         # pytest unit tests
+├── reports/
+│   ├──report.pdf
+│   └── report.tex
 ├── figures/                    # PNG outputs referenced below
 ├── pyproject.toml
 ├── LICENSE
 └── README.md
+
 ```
 
 ---
