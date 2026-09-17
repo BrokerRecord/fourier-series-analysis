@@ -48,7 +48,7 @@ fourier-series-analysis/
 ├── tests/
 │   └── test_fourier.py         # pytest unit tests
 ├── reports/
-│   ├──report.pdf
+│   ├── report.pdf
 │   └── report.tex
 ├── figures/                    # PNG outputs referenced below
 ├── pyproject.toml
