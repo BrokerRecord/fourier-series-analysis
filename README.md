@@ -259,7 +259,7 @@ Run the unit test suite with:
 pytest -v
 ```
 
-All seven tests pass. They cover:
+All ten tests pass. They cover:
 
 - **`test_sine_wave_coefficients`** — a pure $\sin(x)$ input returns
   $b_1 = 1$ and zeros elsewhere.
@@ -273,8 +273,12 @@ All seven tests pass. They cover:
   factor of exactly $2$.
 - **`test_gibbs_overshoot_converges_to_limit`** — the measured overshoot
   approaches the theoretical absolute limit as the mode count increases.
-- **`test_gibbs_overshoot_monotone_approach`** — the gap to the limit shrinks
-  monotonically in magnitude.
+- **`test_gibbs_overshoot_monotone_approach`** — the gap to the limit shrinks monotonically in magnitude.
+- **`test_compare_fourier_vs_fft_smooth_agreement`** — FS and FFT reconstructions agree to machine precision on a smooth signal.
+
+- **`test_compare_fourier_vs_fft_returned_keys`** — the returned dict exposes the exact keys the notebooks rely on.
+
+- **`test_compare_fourier_vs_fft_aliasing_decreases`** — for a jump signal, the FS–FFT discrepancy shrinks as n_samples grows.
 
 ---
 
