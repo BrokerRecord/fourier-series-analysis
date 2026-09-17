@@ -28,6 +28,7 @@ tests.
 - **Analytical Fourier series vs. FFT**: agreement to $\sim 10^{-15}$ for smooth
   signals, and a quantified aliasing study for a square wave.
 - **Unit tests** validating coefficients, symmetry, and the Gibbs limit.
+- **Formal report**: [`reports/report.pdf`](reports/report.pdf) — 6-page write-up
 
 ---
 
@@ -174,7 +175,7 @@ following convergence study:
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/fourier-series-analysis.git
+git clone https://github.com/BrokerRecord/fourier-series-analysis.git
 cd fourier-series-analysis
 python -m venv .venv && source .venv/bin/activate    # Windows: .venv\Scripts\activate
 pip install -e .
@@ -285,6 +286,10 @@ All ten tests pass. They cover:
 - **`test_compare_fourier_vs_fft_aliasing_decreases`** — for a jump signal, the FS–FFT discrepancy shrinks as n_samples grows.
 
 ---
+
+## Report
+
+📄 **[Full report (PDF)](reports/report.pdf)** — 6-page write-up with derivations, figures, and reproducibility notes.
 
 ## Requirements
 
