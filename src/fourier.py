@@ -16,10 +16,10 @@ class FourierSeries:
         self.func = func
         self.L = L
 
-    def compute_coefficients(self, n_modes: int) -> Tuple[float, np.ndarray, np.ndarray]:
-        """Compute Fourier coefficients (a0, an, bn) up to `n_modes` using Gauss-Kronrod quadrature."""
-        # a0 = (1 / L) * integral_{-L}^L f(x) dx
-        a0, _ = quad(self.func, -self.L, self.L, limit=200)
+    def compute_coefficients(self, n_modes: int,breakpoints: list[float] | None = None,
+) -> Tuple[float, np.ndarray, np.ndarray]:
+        pts = breakpoints or None
+        a0, _ = quad(self.func, -self.L, self.L, limit=200, points=pts)
         a0 /= self.L
 
         an = np.zeros(n_modes)
@@ -27,25 +27,19 @@ class FourierSeries:
 
         for n in range(1, n_modes + 1):
             an_val, _ = quad(
-                lambda x: self.func(x) * np.cos(n * np.pi * x / self.L),
-                -self.L,
-                self.L,
-                limit=200,
-            )
+            lambda x: self.func(x) * np.cos(n * np.pi * x / self.L),
+            -self.L, self.L, limit=200, points=pts,)
             bn_val, _ = quad(
-                lambda x: self.func(x) * np.sin(n * np.pi * x / self.L),
-                -self.L,
-                self.L,
-                limit=200,
-            )
+            lambda x: self.func(x) * np.sin(n * np.pi * x / self.L),
+            -self.L, self.L, limit=200, points=pts,)
             an[n - 1] = an_val / self.L
             bn[n - 1] = bn_val / self.L
 
         return a0, an, bn
 
-    def reconstruct(self, x: np.ndarray, n_modes: int) -> np.ndarray:
+    def reconstruct(self, x: np.ndarray, n_modes: int, breakpoints=None) -> np.ndarray:
         """Evaluate the N-mode Fourier partial sum on spatial array `x`."""
-        a0, an, bn = self.compute_coefficients(n_modes)
+        a0, an, bn = self.compute_coefficients(n_modes, breakpoints=breakpoints)
 
         # Base DC component
         y = np.full_like(x, a0 / 2.0, dtype=np.float64)
