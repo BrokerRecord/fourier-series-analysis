@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: fourier-series-analysis
+Version: 0.1.0
+Summary: Study of Fourier series convergence, signal reconstruction, and the Gibbs phenomenon
+Author-email: Awa Mbaye <Evash0uwha@gmail.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.24
+Requires-Dist: scipy>=1.10
+Requires-Dist: matplotlib>=3.7
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: jupyter>=1.0; extra == "dev"
+Dynamic: license-file
+
+# fourier-series-analysis

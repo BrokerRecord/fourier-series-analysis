@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+fourier_series_analysis.egg-info/PKG-INFO
+fourier_series_analysis.egg-info/SOURCES.txt
+fourier_series_analysis.egg-info/dependency_links.txt
+fourier_series_analysis.egg-info/requires.txt
+fourier_series_analysis.egg-info/top_level.txt
+src/__init__.py
+src/fourier.py
+src/gibbs_analysis.py
+src/signal_processing.py
+tests/test_fourier.py
